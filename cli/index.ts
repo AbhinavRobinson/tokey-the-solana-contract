@@ -6,7 +6,11 @@ const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
 
 async function main() {
   const signer = web3.Keypair.fromSecretKey(key)
-  console.log((await connection.getBalance(signer.publicKey)).toString())
+  console.log(
+    `SOL: ${
+      (await connection.getBalance(signer.publicKey)) / web3.LAMPORTS_PER_SOL
+    }`
+  )
 }
 
 main()
