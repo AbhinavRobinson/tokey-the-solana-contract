@@ -8,9 +8,15 @@ fn process_instruction(
     _accounts: &[AccountInfo],
     instruction_data: &[u8],
 ) -> ProgramResult {
-    let key: &u8 = instruction_data.first().unwrap_or(&2_u8);
+    let (key, rem): (&u8, &[u8]) = instruction_data.split_first().unwrap_or((&0_u8, &[]));
     match key {
-        0 => msg!("Hello, world!"),
+        0 => {
+            let value: u64 = rem
+                .get(0..8)
+                .map(|b| u64::from_le_bytes(b.try_into().unwrap_or_default()))
+                .unwrap_or(0);
+            msg!("0: {}", value);
+        }
         1 => msg!("Hello, Solana!"),
         _ => msg!("Invalid instruction key"),
     };

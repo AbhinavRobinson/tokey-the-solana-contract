@@ -4,13 +4,13 @@ Simple solana contract with cli app to interact with it!
 
 ## How to use
 
-- (`REQUIRED`) rust, cargo, nodejs, npm/yarn, solana, cargo-build-bpf
+- `REQUIRED` rust, cargo, nodejs, npm/yarn, solana, cargo-build-bpf
 - Install cli deps:
   - `<npm/yarn> install`
 - Build rust app:
   - `cargo build-bpf`
 - Deploy program:
-  - `solana deploy program <path/to/program.so>`
+  - `solana program deploy <path/to/program.so>`
   - Copy the programId/signature to clipboard!
 - Setup ENV:
   - `cp env.example.ts env.ts`
