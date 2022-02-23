@@ -1,2 +1,6 @@
+build
+node_modules
 /target
-Cargo.lock
+*.lock
+*lock.json
+env.ts
