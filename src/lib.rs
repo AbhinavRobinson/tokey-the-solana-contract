@@ -4,8 +4,8 @@ use solana_program::{
 
 entrypoint!(process_instruction);
 fn process_instruction(
-    program_id: &Pubkey,
-    accounts: &[AccountInfo],
+    _program_id: &Pubkey,
+    _accounts: &[AccountInfo],
     instruction_data: &[u8],
 ) -> ProgramResult {
     let key: &u8 = instruction_data.first().unwrap_or(&2_u8);
