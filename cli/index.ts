@@ -1,12 +1,12 @@
 import web3 = require('@solana/web3.js')
+
+import BN from 'bn.js'
 import { id, PRIVATE_KEY } from './env'
 
 const key = Uint8Array.from(PRIVATE_KEY)
 const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
 const programId = new web3.PublicKey(id)
-const data = Buffer.from(
-  new Uint8Array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90])
-)
+const data = Buffer.from(new Uint8Array([0, ...new BN(4).toArray('le', 8)]))
 
 async function main() {
   const signer: web3.Keypair = web3.Keypair.fromSecretKey(key)

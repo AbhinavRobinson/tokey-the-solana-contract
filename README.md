@@ -2,6 +2,8 @@
 
 Simple solana contract with cli app to interact with it!
 
+The Program is safe and avoids unhandled unwrap() exceptions in addition to favoring own implementation of ser-de for instructions. For educational purpose only, in real app should use serde/borsh instead.
+
 ## How to use
 
 - `REQUIRED` rust, cargo, nodejs, npm/yarn, solana, cargo-build-bpf
